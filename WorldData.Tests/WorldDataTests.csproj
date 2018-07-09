@@ -10,6 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\xx\xx.csproj" />
+    <ProjectReference Include="..\WorldData\WorldData.csproj" />
   </ItemGroup>
 </Project>
