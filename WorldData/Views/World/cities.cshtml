@@ -1,6 +1,44 @@
-@foreach (var city in Model)
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Counter</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <style>
+    body
+    {
+      background-color: lightblue;
+    }
+    </style>
+  </head>
+  <div class="jumbotron">
+    <h1>Cities!</h1>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">City</th>
+        <th scope="col">Population</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      @foreach (var city in Model)
+      {
+      <tr>
+        <th scope="row">@city.GetId()</th>
+        <td>@city.GetName()</td>
+        <td>@city.GetPopulation()</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+
+
+<!-- @foreach (var city in Model)
 {
-<li>@city.GetId()</li>
+<li></li>
 <li>@city.GetPopulation()</li>
 <li>@city.GetName()</li>
-}
+} -->

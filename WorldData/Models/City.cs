@@ -39,7 +39,7 @@ namespace WorldData.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM city;";
+      cmd.CommandText = @"SELECT * FROM city ORDER BY name ASC;";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
