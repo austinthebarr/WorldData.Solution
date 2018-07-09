@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WHOLE WORLD!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <style>
+    body
+    {
+      background-color: lightblue;
+    }
+    </style>
+  </head>
+  <div class="jumbotron">
+    <h1>Filter Countries!</h1>
+  </div>
+
+<h1>Filter by Continent</h1>
+<h3>A continent:</h3>
+<form action="/world/filtered" method="post">
+  <label for="continent">Add a new item</label>
+  <input id="continent" name="continent" type="text">
+  <button type="submit">Submit</button>
+</form>

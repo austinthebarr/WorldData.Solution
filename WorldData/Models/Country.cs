@@ -76,5 +76,38 @@ namespace WorldData.Models
       }
       return allCountries;
     }
+    public static List<Country> GetByContinent(string userInput)
+    {
+      List<Country> allCountries = new List<Country>{};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = "SELECT * FROM country WHERE continent LIKE '" + userInput +"%';";
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        string countryName = rdr.GetString(1);
+        string countryContinent = rdr.GetString(2);
+        int countryCapital = 0;
+        if(!rdr.IsDBNull(13))
+        {
+          countryCapital = rdr.GetInt32(13);
+        }
+        int countryPopulation = rdr.GetInt32(6);
+        float countryLifeExpectancy = 0;
+        if(!rdr.IsDBNull(7))
+        {
+          countryLifeExpectancy = rdr.GetFloat(7);
+        }
+        Country newCountry = new Country(countryName, countryContinent, countryCapital, countryPopulation, countryLifeExpectancy);
+        allCountries.Add(newCountry);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allCountries;
+    }
   }
 }

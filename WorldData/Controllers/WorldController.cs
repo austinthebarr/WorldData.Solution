@@ -18,5 +18,18 @@ namespace WorldData.Controllers
     {
       return View(Country.GetAll());
     }
+
+    [HttpGet("world/form")]
+    public ActionResult form()
+    {
+      return View();
+    }
+
+    [HttpPost("world/filtered")]
+    public ActionResult filtered()
+    {
+      List<Country> filteredCountry = Country.GetByContinent(Request.Form["continent"]);
+      return View(filteredCountry);
+    }
   }
 }
