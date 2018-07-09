@@ -9,11 +9,14 @@ namespace WorldData.Models
   {
     private int _id;
     private string _name;
+    private string _district;
     private int _population;
 
-    public City(string NewName, int NewPopulation, int Id = 0)
+
+    public City(string NewName, string NewDistrict, int NewPopulation, int Id = 0)
     {
       _name = NewName;
+      _district = NewDistrict;
       _population = NewPopulation;
       _id = Id;
     }
@@ -21,6 +24,11 @@ namespace WorldData.Models
     public string GetName()
     {
       return _name;
+    }
+
+    public string GetDistrict()
+    {
+      return _district;
     }
 
     public int GetPopulation()
@@ -45,8 +53,9 @@ namespace WorldData.Models
       {
         int cityId = rdr.GetInt32(0);
         string cityName = rdr.GetString(1);
+        string cityDistrict = rdr.GetString(3);
         int cityPopulation = rdr.GetInt32(4);
-        City newCity = new City(cityName, cityPopulation, cityId);
+        City newCity = new City(cityName, cityDistrict, cityPopulation, cityId);
         allCities.Add(newCity);
       }
       conn.Close();

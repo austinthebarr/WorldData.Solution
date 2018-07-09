@@ -9,8 +9,14 @@ namespace WorldData.Controllers
     [HttpGet("world/cities")]
     public ActionResult Cities()
     {
-      List<City> allCities = City.GetAll();
-      return View(allCities);
+      // List<City> allCities = City.GetAll();
+      return View(City.GetAll());
+    }
+
+    [HttpGet("world/countries")]
+    public ActionResult Countries()
+    {
+      return View(Country.GetAll());
     }
   }
 }

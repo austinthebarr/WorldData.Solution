@@ -11,36 +11,31 @@
     </style>
   </head>
   <div class="jumbotron">
-    <h1>Cities!</h1>
+    <h1>Countries!</h1>
   </div>
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">City</th>
-        <th scope="col">District</th>
+        <th scope="col">Country</th>
+        <th scope="col">Continent</th>
+        <th scope="col">Capital</th>
         <th scope="col">Population</th>
+        <th scope="col">Life Expectancy</th>
+
       </tr>
     </thead>
     <tbody>
 
-      @foreach (var city in Model)
+      @foreach (var country in Model)
       {
       <tr>
-        <th scope="row">@city.GetId()</th>
-        <td>@city.GetName()</td>
-        <td>@city.GetDistrict()</td>
-        <td>@city.GetPopulation()</td>
+        <th scope="row">@country.GetName()</th>
+        <td>@country.GetContinent()</td>
+        <td>@country.GetCapital()</td>
+        <td>@country.GetPopulation()</td>
+        <td>@country.GetLifeEcpectancy()</td>
+
       </tr>
       }
     </tbody>
   </table>
-
-
-
-<!-- @foreach (var city in Model)
-{
-<li></li>
-<li>@city.GetPopulation()</li>
-<li>@city.GetName()</li>
-} -->
